@@ -1,0 +1,39 @@
+body,
+html,
+#root {
+  height: 100%;
+  background-color: #282c34;
+}
+
+html {
+  font-size: 18px;
+}
+
+h1 {
+  padding: 0.77rem 0;
+  text-align: center;
+  font-size: 1.88rem;
+  color: white;
+}
+
+h2 {
+  font-size: 1.55rem;
+}
+
+.App {
+  height: 100%;
+  padding: 0 17% 10% 17%;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.App-link {
+  color: #61dafb;
+}
