@@ -1,8 +1,14 @@
 import React from 'react'
 
-function SearchResults() {
+import './SearchResults.css'
+import Tracklist from '../Tracklist/Tracklist'
+
+const SearchResults = () => {
     return (
-        <div>SearchResults</div>
+        <div className='SearchResults'>
+            <h2>Results</h2>
+            <Tracklist />
+        </div>
     )
 }
 

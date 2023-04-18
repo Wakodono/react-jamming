@@ -37,3 +37,10 @@ h2 {
 .App-link {
   color: #61dafb;
 }
+
+@media only screen and (max-width: 1020px) {
+  .App-playlist {
+    align-items: center;
+    flex-direction: column;
+  }
+}

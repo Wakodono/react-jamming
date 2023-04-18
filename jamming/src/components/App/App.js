@@ -1,9 +1,20 @@
+import { useCallback, useState } from 'react';
+
 import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [searchResults, setSearchResults] = useState([])
+  const [playlistName, setPlaylistName] = useState([])
+  const [playlistTracks, setPlaylistTracks] = useState([])
+
+  const search = useCallback((term) => {
+    // First establish our Spotify fetch in utils
+    // Spotify.search()
+  })
+
   return (
     <div>
       <h1>
