@@ -5,4 +5,14 @@
   overflow-y: scroll;
   width: 37%;
   max-height: 950px;
+  padding: 2.27rem 1.16rem;
+  box-shadow: 0 4px 2px 2px black;
+}
+
+.Playlist input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid rgb(214, 210, 210);
+  font-size: 1.55rem;
 }
