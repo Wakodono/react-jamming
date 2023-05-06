@@ -6,14 +6,55 @@ import SearchResults from '../SearchResults/SearchResults';
 import './App.css';
 
 const App = () => {
-  const [searchResults, setSearchResults] = useState([])
-  const [playlistName, setPlaylistName] = useState([])
-  const [playlistTracks, setPlaylistTracks] = useState([])
 
-  const search = useCallback((term) => {
-    // First establish our Spotify fetch in utils
-    // Spotify.search()
-  })
+  const searchResults = [
+    {
+      id: 1,
+      name: 'Tiny Dancer',
+      artist: 'Elton John',
+      album: 'Madman Across The Water',
+    },
+    {
+      id: 2,
+      name: `Sweet Child O' Mine`,
+      artist: `Guns N' Roses`,
+      album: 'Appetite for Destruction',
+    },
+    {
+      id: 3,
+      name: 'Bohemian Rhapsody',
+      artist: 'Queen',
+      album: 'A Night at the Opera',
+    },
+  ]
+
+  // const search = (term) => {
+  //   // First establish our Spotify fetch in utils
+  //   // Spotify.search()
+  //   const tracks = [
+  //     {
+  //       id: 1,
+  //       name: 'Tiny Dancer',
+  //       artist: 'Elton John',
+  //       album: 'Madman Across The Water',
+  //     },
+  //     {
+  //       id: 2,
+  //       name: `Sweet Child O' Mine`,
+  //       artist: `Guns N' Roses`,
+  //       album: 'Appetite for Destruction',
+  //     },
+  //     {
+  //       id: 3,
+  //       name: 'Bohemian Rhapsody',
+  //       artist: 'Queen',
+  //       album: 'A Night at the Opera',
+  //     },
+  //   ]
+
+  //   setSearchResults(tracks)
+  //   setPlaylistTracks(tracks)
+  // }
 
   return (
     <div>
@@ -23,8 +64,8 @@ const App = () => {
       <div className="App">
         <SearchBar />
         <div className='App-playlist'>
-          <SearchResults />
-          <Playlist />
+          <SearchResults searchResults={searchResults} />
+          <Playlist playlistTracks={searchResults} />
         </div>
       </div>
     </div>

@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Track from '../Track/Track';
 
-function Tracklist() {
+const Tracklist = (props) => {
     return (
-        <div>Tracklist</div>
+        <div className='Tracklist'>
+            {props.tracks.map(track => {
+                return (
+                    <Track
+                        track={track}
+                        key={track.id}
+                    />
+                )
+            })}
+        </div>
     )
 }
 

@@ -1,8 +1,16 @@
 import React from 'react'
 
-function Playlist() {
+import Tracklist from '../Tracklist/Tracklist'
+
+const Playlist = (props) => {
+    // console.log("These came from App", props)
+
     return (
-        <div>Playlist</div>
+        <div className='Playlist'>
+            <Tracklist
+                tracks={props.playlistTracks}
+            />
+        </div>
     )
 }
 
