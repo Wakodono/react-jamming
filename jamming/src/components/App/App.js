@@ -7,6 +7,28 @@ import './App.css';
 
 const App = () => {
 
+  const [playlistName, setPlaylistName] = useState("New Playlsit")
+  const [playlistTracks, setPlaylistTracks] = useState([
+    {
+      id: 1,
+      name: 'Tiny Dancer',
+      artist: 'Elton John',
+      album: 'Madman Across The Water',
+    },
+    {
+      id: 2,
+      name: `Sweet Child O' Mine`,
+      artist: `Guns N' Roses`,
+      album: 'Appetite for Destruction',
+    },
+    {
+      id: 3,
+      name: 'Bohemian Rhapsody',
+      artist: 'Queen',
+      album: 'A Night at the Opera',
+    },
+  ])
+
   const searchResults = [
     {
       id: 1,
@@ -28,33 +50,21 @@ const App = () => {
     },
   ]
 
-  // const search = (term) => {
-  //   // First establish our Spotify fetch in utils
-  //   // Spotify.search()
-  //   const tracks = [
-  //     {
-  //       id: 1,
-  //       name: 'Tiny Dancer',
-  //       artist: 'Elton John',
-  //       album: 'Madman Across The Water',
-  //     },
-  //     {
-  //       id: 2,
-  //       name: `Sweet Child O' Mine`,
-  //       artist: `Guns N' Roses`,
-  //       album: 'Appetite for Destruction',
-  //     },
-  //     {
-  //       id: 3,
-  //       name: 'Bohemian Rhapsody',
-  //       artist: 'Queen',
-  //       album: 'A Night at the Opera',
-  //     },
-  //   ]
+  const addTrack = useCallback(
+    track => {
+      if (playlistTracks.some(savedTrack => savedTrack.id === track.id))
+        return
 
-  //   setSearchResults(tracks)
-  //   setPlaylistTracks(tracks)
-  // }
+      setPlaylistTracks(prevTracks => [...prevTracks, track])
+    },
+    [playlistTracks]
+  )
+
+  const removeTrack = useCallback(track => {
+    setPlaylistTracks(prevTracks =>
+      prevTracks.filter(currentTrack => currentTrack.id !== track.id)
+    )
+  }, [])
 
   return (
     <div>
@@ -64,8 +74,11 @@ const App = () => {
       <div className="App">
         <SearchBar />
         <div className='App-playlist'>
-          <SearchResults searchResults={searchResults} />
-          <Playlist playlistTracks={searchResults} />
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <Playlist
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+            onRemove={removeTrack} />
         </div>
       </div>
     </div>

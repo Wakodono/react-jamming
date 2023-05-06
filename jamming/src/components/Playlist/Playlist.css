@@ -1,0 +1,8 @@
+.Playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  width: 37%;
+  max-height: 950px;
+}
