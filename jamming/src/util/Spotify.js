@@ -54,6 +54,34 @@ const Spotify = {
         } catch (error) {
             console.log('API SEARCH REQUEST ERROR: ', error)
         }
+    },
+
+    async savePlaylist(name, trackURIs) {
+        if (!name || !trackURIs.length) {
+            return
+        }
+
+        const accessToken = await Spotify.getAccessToken()
+        const headers = { Authorization: `Bearer ${accessToken}` }
+        let userId
+
+        const response = await fetch('https://api.spotify.com/v1/me', { headers: headers })
+
+        const jsonResponse = await response.json()
+
+        userId = jsonResponse.id
+
+        const playlistResponse = await fetch('https://api.spotify.com/v1/playlists/{playlist_id}/tracks', { headers: headers })
+
+        const playlistJsonResponse = await playlistResponse.json()
+
+        const playlistId = playlistJsonResponse.id
+
+        await fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+            headers: headers,
+            method: 'POST',
+            body: JSON.stringify({ uris: trackURIs })
+        })
     }
 
 

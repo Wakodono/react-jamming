@@ -5,6 +5,14 @@ html,
   background-color: #282c34;
 }
 
+button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
 html {
   font-size: 18px;
 }
@@ -23,7 +31,7 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  display: flex;
+  display: block;
   font-size: calc(10px + 2vmin);
   color: white;
 }

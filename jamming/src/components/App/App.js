@@ -41,6 +41,17 @@ const App = () => {
     setPlaylistName(name)
   }, [])
 
+  const savePlaylist = useCallback(async () => {
+    const trackURIs = playlistTracks.map(track => track.uri)
+    try {
+      await Spotify.savePlaylist(playlistName, trackURIs)
+      setPlaylistName("New Playlist")
+      setPlaylistTracks([])
+    } catch (error) {
+      console.log('PLAYLIST SAVING ERROR', error)
+    }
+  }, [playlistName, playlistTracks]) // The dependencies used here, playlistName and playlistTracks, were chosen because they are the state variables used within the callback function.
+
   return (
     <div>
       <h1>
@@ -55,6 +66,7 @@ const App = () => {
             playlistTracks={playlistTracks}
             onNameChange={updatePlaylistName}
             onRemove={removeTrack}
+            onSave={savePlaylist}
           />
         </div>
       </div>
