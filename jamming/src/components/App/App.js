@@ -60,7 +60,7 @@ const App = () => {
       <div className="App">
         <SearchBar onSearch={search} />
         <div className='App-playlist'>
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <SearchResults searchResults={searchResults} playlistTracks={playlistTracks} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
