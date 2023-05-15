@@ -14,9 +14,9 @@
   color: white;
 }
 
-.Track-action:hover {
+/* .Track-action:hover {
   color: rgba(265, 265, 265, 0.5);
-}
+} */
 
 .Track-information {
   flex-grow: 1;
