@@ -1,24 +1,24 @@
 import React, { useCallback } from 'react'
 
-const Track = (props) => {
+const Track = ({ track, onAdd, onRemove, isRemoval, isTrackInPlaylist }) => {
     // console.log("Check for the props in TRACK", props)
 
     const addTrack = useCallback(
         event => {
-            props.onAdd(props.track)
+            onAdd(track)
         },
-        [props.onAdd, props.track]
+        [onAdd, track]
     )
 
     const removeTrack = useCallback(
         event => {
-            props.onRemove(props.track)
+            onRemove(track)
         },
-        [props.onRemove, props.track]
+        [onRemove, track]
     )
 
     const renderAction = () => {
-        if (props.isRemoval) {
+        if (isRemoval) {
             return (
                 <button className='Track-action' onClick={removeTrack}>
                     -
@@ -26,7 +26,11 @@ const Track = (props) => {
             )
         }
         return (
-            <button className='Track-action' onClick={addTrack}>
+            <button className='Track-action'
+                onClick={addTrack}
+                disabled={isTrackInPlaylist}
+
+            >
                 +
             </button>
         )
@@ -35,9 +39,9 @@ const Track = (props) => {
     return (
         <div className='Track'>
             <div className='Track-information'>
-                <h3>{props.track.name}</h3>
+                <h3>{track.name}</h3>
                 <p>
-                    {props.track.artist} | {props.track.album}
+                    {track.artist} | {track.album}
                 </p>
             </div>
             {renderAction()}

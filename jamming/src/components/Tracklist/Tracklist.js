@@ -1,16 +1,16 @@
 import React from 'react';
 import Track from '../Track/Track';
 
-const Tracklist = ({ onAdd, isRemoval, onRemove, searchResults, trackURIs, tracks }) => {
+const Tracklist = ({ onAdd, isRemoval, onRemove, searchResults, trackURIs, playlistTracks }) => {
 
-    if (!searchResults) {
+    if (!searchResults || !playlistTracks) {
         return []
     }
 
     const filteredTracks = searchResults.filter(track => !trackURIs.includes(track.uri))
 
     const isTrackInPlaylist = track => {
-        return tracks.some(track => track.id === track.id)
+        return playlistTracks.some(playlistTrack => playlistTrack.id === track.id)
     }
 
 

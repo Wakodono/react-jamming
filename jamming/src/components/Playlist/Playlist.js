@@ -15,7 +15,7 @@ const Playlist = ({ playlistTracks, onRemove, onNameChange, onSave }) => {
         <div className='Playlist'>
             <input onChange={handleNameChange} defaultValue={"New Playlist"} />
             <Tracklist
-                tracks={playlistTracks}
+                playlistTracks={playlistTracks}
                 isRemoval={true}
                 onRemove={onRemove}
             />
