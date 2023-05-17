@@ -11,6 +11,18 @@ const Playlist = ({ playlistTracks, onRemove, onNameChange, onSave }) => {
         [onNameChange]
     )
 
+    if (playlistTracks.length === 0) {
+        return (
+            <div className='Playlist'>
+                <input onChange={handleNameChange} defaultValue={"New Playlist"} />
+                <p>No tracks in the playlist</p>
+                <button className='Playlist-save' onClick={onSave}>
+                    SAVE TO SPOTIFY
+                </button>
+            </div>
+        )
+    }
+
     return (
         <div className='Playlist'>
             <input onChange={handleNameChange} defaultValue={"New Playlist"} />
