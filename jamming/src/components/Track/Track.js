@@ -5,9 +5,11 @@ const Track = ({ track, onAdd, onRemove, isRemoval, isTrackInPlaylist }) => {
 
     const addTrack = useCallback(
         event => {
-            onAdd(track)
+            if (!isTrackInPlaylist) {
+                onAdd(track)
+            }
         },
-        [onAdd, track]
+        [isTrackInPlaylist, onAdd, track]
     )
 
     const removeTrack = useCallback(
